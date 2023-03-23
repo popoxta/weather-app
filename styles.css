@@ -1,3 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    background: no-repeat center / cover url("./images/dominik-schroder-FIKD9t5_5zQ-unsplash.jpg");
+
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, p {
+    color: white;
+}
+
+h1 {
+    font-size: 2.5rem;
+    word-wrap: anywhere;
+    line-height: 0.8;
+}
+
+h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+
+   margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 5rem;
+    font-weight: 400;
+    line-height: 0.8;
+
+    position: relative;
+}
+
+h3::after {
+    content: '℃';
+    font-size: 1rem;
+
+    position: absolute;
+    top: 0.3rem;
+}
+
+p {
+    font-weight: 500;
+    margin: 0.1rem 0;
+}
+
+form {
+    align-self: flex-start;
+    display: flex;
+
+    gap: 0.5rem;
+    margin: 2rem 0 0 2rem;
+}
+
+input {
+    color: #6f889d;
+    background-color: rgba(255, 255, 255, 40%);
+    border: none;
+    border-radius: 5px;
+
+    font-size: 1rem;
+
+    padding-left: 0.5rem;
+    height: 2rem;
+}
+
+input:focus {
+    outline: 2px solid white;
+}
+
+button[type='submit'] {
+    border: none;
+    background-color: transparent;
+    background-image: url("./images/magnify.svg");
+    background-repeat: no-repeat;
+
+    white-space: nowrap;
+    width: 2rem;
+    height: 2rem;
+
+    cursor: pointer;
+}
+
+button[type='submit']:hover {
+    background-color: #6f889d;
+}
+
+.info {
+    padding-top: max(10%, 8rem);
+    width: fit-content;
+    max-width: 80%;
+
+    align-self: center;
+}
+
+.header {
+    border-bottom: 2px solid white;
+    margin-bottom: 0.5rem;
+}
+
+.temp-info {
+    display: flex;
+    gap: 2rem;
+}
+
 .bad-query::after {
     content: 'BAD QUERY';
     color: red;

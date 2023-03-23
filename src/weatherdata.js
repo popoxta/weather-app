@@ -1,6 +1,6 @@
 export {getFormattedWeather}
 
-const API_KEY = ''
+const API_KEY = '0d034dfff4894e92825194255232203'
 const ENDPOINT = 'https://api.weatherapi.com/v1/current.json'
 
 async function getWeatherData(query){

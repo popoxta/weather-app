@@ -2,12 +2,12 @@ import {getFormattedWeather} from "./weatherdata.js";
 
 function displayWeather(data){
     const header = document.querySelector('.header > h1')
-    header.textContent = data.country
+    header.textContent = data.city
 
     const subHeader = document.querySelector('.header > h2')
-    subHeader.textContent = data.city
+    subHeader.textContent = data.country
 
-    const temp = document.querySelector('.temp')
+    const temp = document.querySelector('.temp > h3')
     temp.textContent = data.tempC // todo c/f temp based
 
     const tempDetails = document.querySelector('.temp-details')

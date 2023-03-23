@@ -1,0 +1,4 @@
+.bad-query::after {
+    content: 'BAD QUERY';
+    color: red;
+}

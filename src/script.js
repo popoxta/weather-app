@@ -18,8 +18,30 @@ function displayWeather(data){
     const humidity = document.createElement('p')
     humidity.textContent = `Humidity ${data.humidity}`
 
-    tempDetails.append(condition, feelsLike, humidity)
+    tempDetails.replaceChildren(condition, feelsLike, humidity)
 }
 
+const citySearch = document.querySelector('form')
+citySearch.addEventListener('submit', e => {
+    e.preventDefault()
+    const query = document.querySelector('#query').value
+    getFormattedWeather(query)
+        .then(weather => {
+            displayWeather(weather)
+            queryFeedback(false)
+        })
+        .catch(err => {
+            console.log(err)
+            queryFeedback(true)
+        })
+})
+
+function queryFeedback(bool){
+    if (bool){
+        citySearch.className = 'bad-query'
+    } else {
+        citySearch.className = ''
+    }
+}
 
 const akl = getFormattedWeather('auckland').then(weather => displayWeather(weather)).catch(err => console.log(err))

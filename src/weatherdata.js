@@ -4,7 +4,10 @@ const API_KEY = ''
 const ENDPOINT = 'https://api.weatherapi.com/v1/current.json'
 
 async function getWeatherData(query){
-    return await fetch(`${ENDPOINT}?key=${API_KEY}&q=${query}`)
+    return await fetch(`${ENDPOINT}?key=${API_KEY}&q=${query}`,
+        {
+            mode : 'cors'
+        })
         .then(res => {
             if (res.status === 400) throw new Error('Query not found')
             else return res.json()

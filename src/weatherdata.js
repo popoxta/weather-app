@@ -1,10 +1,14 @@
+export {getFormattedWeather}
 
 const API_KEY = ''
 const ENDPOINT = 'https://api.weatherapi.com/v1/current.json'
 
 async function getWeatherData(query){
-    const response = await fetch(`${ENDPOINT}?key=${API_KEY}&q=${query}`)
-    return response.json()
+    return await fetch(`${ENDPOINT}?key=${API_KEY}&q=${query}`)
+        .then(res => {
+            if (res.status === 400) throw new Error('Query not found')
+            else return res.json()
+        })
 }
 
 function formatWeatherData(data){
@@ -20,6 +24,6 @@ function formatWeatherData(data){
     }
 }
 
-const weather = getWeatherData('auckland').then(w => formatWeatherData(w)).then(w=> console.log(w))
-
-
+function getFormattedWeather(query){
+    return getWeatherData(query).then(data => formatWeatherData(data))
+}
